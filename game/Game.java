@@ -24,9 +24,9 @@ public class Game {
         this.fillFields();
         this.randomizeMines();
     }
-    private int randIntInRange(int min, int max) {
+    private int randIntInRange(int max) {
         Random random = new Random();
-        return random.nextInt(max - min) + min;
+        return random.nextInt(max);
     }
     private int getRow(int idx) {
         return idx / COLUMNS;
@@ -45,7 +45,7 @@ public class Game {
     public void randomizeMines() {
         int i = 0;
         while (i < N_MINES) {
-            int random_index = randIntInRange(0, N_FIELDS);
+            int random_index = randIntInRange(N_FIELDS);
             if (fields[random_index] != FieldState.Unflagged_mine) {
                 fields[random_index] = FieldState.Unflagged_mine;
                 i++;
@@ -67,9 +67,7 @@ public class Game {
             }
         }
     }
-    private void floodFill(int row, int col) {
 
-    }
     private void uncover(int row, int col) {
         int idx = getIndex(row, col);
         this.fields[idx] = FieldState.Uncovered;

@@ -5,12 +5,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Minesweeper extends JFrame {
-    private JLabel status;
 
     public Minesweeper() {
-        status = new JLabel("");
+        JLabel status = new JLabel("");
         add(status, BorderLayout.SOUTH);
-        add(new GUI(status, 16, 16, 20));
+        add(new GUI(16, 16, 20));
         setResizable(false);
         pack();
         setTitle("Minesweeper");
